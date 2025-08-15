@@ -3,34 +3,52 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Foto</title>
+    <title>Foto protegida</title>
     <style>
       html, body {
         margin: 0;
         padding: 0;
         height: 100%;
         background: #000;
-        overflow: hidden;
-      }
-      .wrap {
-        height: 100vh;
-        width: 100vw;
-        display: grid;
-        place-items: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: sans-serif;
       }
       img {
         width: 100vw;
         height: 100vh;
         object-fit: contain;
-        display: block;
-        user-select: none;
-        -webkit-user-drag: none;
+        display: none; /* oculta la imagen hasta que se verifique */
       }
     </style>
   </head>
   <body>
-    <div class="wrap">
-      <img src="https://file.garden/aHsRzMyDZiAHfJtZ/250708594826802508768783956.jpg" alt="Foto" />
-    </div>
+    <img id="foto" src="https://file.garden/aHsRzMyDZiAHfJtZ/250708594826802508768783956.jpg" alt="Foto" />
+
+    <script>
+      // Cambiá las contraseñas a lo que quieras
+      const pass1 = "vitocapomal";
+      const pass2 = "valenmansogil";
+      const pass3 = "vitoyvalen";
+
+      const ingreso1 = prompt("Contraseña 1:");
+      if (ingreso1 === pass1) {
+        const ingreso2 = prompt("Contraseña 2:");
+        if (ingreso2 === pass2) {
+          const ingreso3 = prompt("Contraseña 3:");
+          if (ingreso3 === pass3) {
+            document.getElementById("foto").style.display = "block";
+          } else {
+            document.body.innerHTML = "<h2>Acceso denegado</h2>";
+          }
+        } else {
+          document.body.innerHTML = "<h2>Acceso denegado</h2>";
+        }
+      } else {
+        document.body.innerHTML = "<h2>Acceso denegado</h2>";
+      }
+    </script>
   </body>
 </html>
